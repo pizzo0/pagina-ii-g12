@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Medidor{% endblock %}
+{% block content %}
+{% block medidor %}
+  {% include "medidor.html" %}
+{% endblock medidor %}
+<script src="{% static 'js/app.js' %}"></script>
+{% endblock content %}
