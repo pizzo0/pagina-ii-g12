@@ -2,8 +2,75 @@
 {% load static %}
 {% block title %}Medidor{% endblock %}
 {% block content %}
-{% block medidor %}
-  {% include "medidor.html" %}
-{% endblock medidor %}
-<script src="{% static 'js/app.js' %}"></script>
+<div class="width_container">
+    
+    {% block medidor %}
+      {% include "medidor.html" %}
+    {% endblock medidor %}
+    <div class="dropdown container_dzn_2 boxshadow border">
+        <p>Contexto</p>
+        <span class="nav_link nav_link_dzn1 nav_link_normal_font border" id="context-option">
+            Contexto
+        </span>
+        <div class="dropdown-content border">
+            <a href="#" class="dropdown-button">Silencioso</a>
+            <a href="#" class="dropdown-button">Estandar</a>
+            <a href="#" class="dropdown-button">Ruidoso</a>
+            <a href="#" class="dropdown-button">Concierto</a>
+            <a href="#" class="dropdown-button">Personalizado</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentContext = localStorage.getItem("saved_context");
+    const dropdown = document.querySelector('.dropdown');
+    const dropdownContent = document.querySelector('.dropdown-content');
+
+    if (!("saved_context" in localStorage)) {
+        localStorage.setItem("saved_context","Estandar");
+        currentContext = localStorage.getItem("saved_context")
+    };
+
+    let switch_slider = document.querySelector("#switch_personalizado_section");
+    if (currentContext === "Personalizado") {
+        switch_slider.classList.add("custom_on")
+    } else {
+        switch_slider.classList.remove("custom_on")
+    };
+
+    dropdown.querySelector('span').textContent = currentContext;
+
+    dropdown.addEventListener('click', function() {
+        dropdown.classList.toggle('open');
+    });
+
+    const buttons = document.querySelectorAll('.dropdown-button');
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            const clickedButton = event.target;
+            const selectedOption = clickedButton.textContent;
+
+            localStorage.setItem("saved_context",selectedOption);
+            currentContext = localStorage.getItem("saved_context");
+            console.log(currentContext)
+            
+            console.log('Button clicked:', clickedButton);
+            console.log('Selected option:', selectedOption);
+            dropdown.classList.remove('open');
+            dropdown.querySelector('span').textContent = selectedOption;
+
+            // mostrar o no el slider para personalizar rango
+            if (currentContext === "Personalizado") {
+                switch_slider.classList.add("custom_on")
+            } else {
+                switch_slider.classList.remove("custom_on")
+            };
+        });
+    });
+</script>
+
+<script src="{% static 'js/medidor.js' %}"></script>
+
+
 {% endblock content %}
