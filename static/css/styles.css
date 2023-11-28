@@ -152,7 +152,7 @@ body {
   height: 100vh;
   color: var(--darkcolor);
   background-color: var(--lightcolor);
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 main {
   display: flex;
@@ -165,7 +165,7 @@ main {
   flex-direction: column;
   margin: auto;
   justify-content: center;
-  height: calc(100vh - var(--header-height) - var(--default-px)*2 - 5px);
+  /* height: calc(100vh - var(--header-height) - var(--default-px)*2 - 5px); */
   gap: calc(var(--default-px));
 }
 .container_align {

@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-gu!rwaitf(w#g0#05izqo=z&$&3++^!j%1(-i2flp26$ip1&fq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['34.67.42.34']
 
 
 # Application definition
@@ -74,10 +74,21 @@ WSGI_APPLICATION = 'siteproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': 'mydb',
+        'USER': 'pizz0',
+        'PASSWORD': '1238',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -116,7 +127,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+import os
+
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
