@@ -43,4 +43,9 @@ defaul_button.addEventListener('click',()=>{
   slider.value = 18
   set_font_size(18)
   localStorage.setItem("font_size",'default');
+
+  max_value_custom = parseInt(slider.max);
+  min_value_custom = parseInt(slider.min);
+
+  line_custom.style.width = ((slider.value-min_value_custom)/(max_value_custom-min_value_custom))*100 + '%'
 });
