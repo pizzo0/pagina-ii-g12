@@ -71,10 +71,10 @@ const toggle_microfono = ()=>{
             target = parseInt(custom_range);
         };
 
-        if (nivel_sonido > target + 20) {
+        if (nivel_sonido > target + 15) {
             ruido = 'ALTO';
             ctx.fillStyle = 'red';
-        } else if (nivel_sonido < target - 20) {
+        } else if (nivel_sonido < target - 15) {
             ruido = 'BAJO';
             ctx.fillStyle = 'yellow';
         } else {

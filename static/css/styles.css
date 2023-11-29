@@ -149,7 +149,7 @@ h2 {
   font-size: 2rem;
 }
 body {
-  height: 100vh;
+  /* height: 100vh; */
   color: var(--darkcolor);
   background-color: var(--lightcolor);
   overflow-x: hidden;
@@ -159,6 +159,7 @@ main {
   flex-direction: column;
   gap: calc(var(--default-px)*0.5);
   padding: var(--default-px) calc(var(--default-px)*1.5);
+  height: calc(100vh - var(--header-height));
 }
 .container {
   display: flex;
@@ -286,7 +287,7 @@ main {
   margin: auto;
   position: relative;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1000px;
 }
 
 

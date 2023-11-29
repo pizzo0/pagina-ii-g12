@@ -51,21 +51,25 @@
   display: flex;
 }
 
+.big_container {
+  height: 800px;
+}
+
 @media (max-width: 800px) {
   #canvas_container {
-    height: 470px;
+    height: 370px;
   }
   .medidor_container {
-    height: 650px;
-    transform: translateY(30px);
+    height: 550px;
+    transform: translateY(50px);
   }
   .section_slider {
-    transform: translateY(30px);
+    transform: translateY(50px);
   }
   .personalizado_section {
-    transform: rotate(90deg) translateY(-150px) translateX(-65px);
+    transform: rotate(90deg) translateY(-135px) translateX(-45px);
   }
   .slider_personalizado_context {
-    width: 470px;
+    width: 370px;
   }
 }
